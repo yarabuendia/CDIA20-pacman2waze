@@ -5,31 +5,29 @@ from utils import floor
 from turtle import *
 import numpy as np
 
-""" Funções já implementadas """
 
-def ler_matriz_fixa():
-    """ Retorna uma matriz fixa """
+def ler_matriz():
+   return [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],\
+          [0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0],\
+          [0, 1, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0],\
+          [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0],\
+          [0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 0],\
+          [0, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0],\
+          [0, 1, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0],\
+          [0, 1, 0, 0, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0],\
+          [0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0],\
+          [0, 0, 0, 0, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 0, 1, 0, 0, 0, 0],\
+          [0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 0],\
+          [0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0],\
+          [0, 1, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0],\
+          [0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 0, 0, 0, 0],\
+          [0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 0, 0],\
+          [0, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0],\
+          [0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0],\
+          [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0],\
+          [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],\
+          [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
 
-    return [[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0],\
-            [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0],\
-            [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0],\
-            [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0],\
-            [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0],\
-            [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0],\
-            [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0],\
-            [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0],\
-            [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0],\
-            [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0],\
-            [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0],\
-            [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0],\
-            [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0],\
-            [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0],\
-            [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0],\
-            [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0],\
-            [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0],\
-            [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0],\
-            [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0],\
-            [1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0]]
 
 def criar_labirinto(p1=420, p2=420, p3=370, p4=0):
     """ Cria o gráfico do labirinto baseado nos valores da matriz """
@@ -50,25 +48,23 @@ def criar_labirinto(p1=420, p2=420, p3=370, p4=0):
                 x, y = em_coord_turtle(lin, col)
                 # Pinta a celula na posição (x,y) com a cor especificada
                 desenhar_celula(x, y, 'blue')
-
-                desenhar_pastilha(x, y, 'white')
-
     # Mostra as transformações na tela.
     # Necessário porque o Tracer() está desligado
     update()
 
 def desenhar_celula(x, y, cor):
-    """ Dada uma coordenada (x, y) do Turtle, desenha um quadrado (célula) na posição """
-    color(cor)
-    up()
-    goto(x,y)
-    down()
-    begin_fill()
-    for _ in range(4):
-        forward(tam_celula)
-        left(90)
-    end_fill()
-    up()
+  """ Dada uma coordenada (x, y) do Turtle, desenha um quadrado (célula) na posição """
+  color(cor)
+  up()
+  goto(x,y)
+  down()
+  begin_fill()
+  for _ in range(4):
+    forward(tam_celula)
+    left(90)
+  end_fill()
+  up()
+  
 
 """ Funções de testes """
 
@@ -134,11 +130,11 @@ def em_coord_turtle(lin, col):
     return x, y
 
 def adicionar_agente():
-    """ Desenha o agente no labirinto """
-    dim = len(matriz)
-    lin, col = cel_aleatoria()
-    x, y = em_coord_turtle(lin, col)
-    desenhar_agente(x, y, 'yellow')
+  """ Desenha o agente no labirinto """
+  dim = len(matriz)
+  lin, col = cel_aleatoria()
+  x, y = em_coord_turtle(lin, col)
+  desenhar_agente(x, y, 'yellow')
 
 def em_coord_matriz(x, y):
     """ Dada uma coordenada do Turtle (x,y), retorna os índices correspondentes da matriz
@@ -148,7 +144,12 @@ def em_coord_matriz(x, y):
         Dica: utilize a função 'chao_da_celula(x, y)'
     """
     # IMPLEMENTE ESSA FUNÇÃO
-    pass
+    x,y = chao_da_celula(x,y)
+    xm= (200-y)//20
+    ym= (-200 +(-x))//-20
+    return xm,ym
+
+    pass 
 
 def ler_matriz_aleatoria(dim):
     """ Retorna uma matriz quadrada na dimensão especificada com números
@@ -156,7 +157,10 @@ def ler_matriz_aleatoria(dim):
         Dica: utilize numpy.random.randint()
     """
     # IMPLEMENTE ESSA FUNÇÃO
-    pass
+    matriz = np.random.randint(2, size=(dim, dim))
+    return matriz
+ 
+    pass 
 
 def cel_aleatoria():
     """ Retorna os índices de uma posição que contenha 1
@@ -169,6 +173,15 @@ def cel_aleatoria():
         Dica: utilize numpy.random.randint()
     """
     # IMPLEMENTE ESSA FUNÇÃO
+    i, j = np.random.randint(dim, size = (2))
+    for i in range (dim):
+      for j in range (dim):
+        if (matriz[i][j] == 1):
+          x, y = em_coord_matriz(i, j)
+
+
+            
+
     pass
 
 def eh_caminho(lin, col):
@@ -182,21 +195,37 @@ def eh_caminho(lin, col):
         a chamada de função 'eh_caminho(0,1,matriz)' retorna False
     """
     # IMPLEMENTE ESSA FUNÇÃO
+    for lin in range(dim):
+      for col in range(dim):
+        if (matriz [lin][col] == 1):
+          True
+        else:
+          False
     pass
 
 def desenhar_agente(x, y, cor):
-    """ Leva a tartaruga até a posição (x,y) e desenha por exemplo um círculo
-        para representar o agente (i.e., pacman, fantasmas)
-    """
-    # IMPLEMENTE ESSA FUNÇÃO
-    pass
+  """ Leva a tartaruga até a posição (x,y) e desenha por exemplo um círculo
+  para representar o agente (i.e., pacman, fantasmas)
+  """
+  color(cor)
+  up()
+  goto(x,y)
+  down()
+  dot(tam_agente,'yellow')
+  up()
+  pass
 
 def desenhar_pastilha(x, y, cor):
-    """ Leva a tartaruga até a posição (x,y) e desenha por exemplo um círculo
-        para representar a pastilha
-    """
-    # IMPLEMENTE ESSA FUNÇÃO
-    pass
+  """ Leva a tartaruga até a posição (x,y) e desenha por exemplo um círculo
+  para representar a pastilha
+  """
+  color(cor)
+  up()
+  goto(x,y)
+  down()
+  dot(dim, 'white')
+  up()
+  pass
 
 #matriz = ler_matriz_fixa()
 matriz = ler_matriz_aleatoria(20)
